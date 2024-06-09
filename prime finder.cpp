@@ -1,4 +1,5 @@
 #include "Header.h"
+
 void find_prime(int no_of_primes)
 {
     //reserve array size of prime numbers
@@ -15,9 +16,11 @@ void find_prime(int no_of_primes)
             {
                 int is_prime = 1; //flag to know if the number is divisible by any factor
                 //start from 2 until half the number we want to test 
-                for (int iii = 2; iii < (ii / 2); iii++)
+                for (int iii = 0; iii < i; iii++)
                 {
-                    if (!(ii % iii))//if the number is divisible break
+                    //loop to half the number only
+                    if(primes_array[iii]<ii/2)
+                    if (!(ii % primes_array[iii]))//if the number is divisible break
                     {
                         is_prime = 0;
                         break;
@@ -32,7 +35,7 @@ void find_prime(int no_of_primes)
         }
     }
     //print all values
-    cout << "here are the first " << no_of_primes << " number of primes:" << endl;
+    if(no_of_primes>1)
+    cout << "here are the first " << no_of_primes << " prime numbers:" << endl;
     for (int i = 0; i < no_of_primes; i++)
         cout << primes_array[i] << endl;
-}
